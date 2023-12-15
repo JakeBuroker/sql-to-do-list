@@ -22,10 +22,9 @@ let toDoItem = [
       tableBody.innerHTML += `
         <tr id="todo-${todos.id}" class="${todos.isComplete ? 'completed' : 'incomplete'}" data-testid="toDoItem">
           <td>${todos.text}</td>
-          <td>${todos.isComplete}</td>
           <td>
             <button data-testid="completeButton" onClick='updateIsComplete(${todos.id})'>
-              Complete
+              Done
             </button>
           </td>
           <td >
