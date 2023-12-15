@@ -1,5 +1,8 @@
 console.log('JS is sourced!');
 
+
+
+
 // TO DO ARRAY
 let toDoItem = [
     {
@@ -8,7 +11,8 @@ let toDoItem = [
       isComplete: 'False',
     }
   ];
-  
+
+
 
   // RENDER
   function renderToDos(array) {
@@ -16,16 +20,16 @@ let toDoItem = [
     tableBody.innerHTML = '';
     for (const todos of array) {
       tableBody.innerHTML += `
-        <tr>
+        <tr id="todo-${todos.id}" class="${todos.isComplete ? 'completed' : 'incomplete'}" data-testid="toDoItem">
           <td>${todos.text}</td>
           <td>${todos.isComplete}</td>
           <td>
-            <button onClick='updateIsComplete(${todos.id})'>
+            <button data-testid="completeButton" onClick='updateIsComplete(${todos.id})'>
               Complete
             </button>
           </td>
           <td >
-            <button onClick='deleteToDo(${todos.id})'>
+            <button data-testid="deleteButton" onClick='deleteToDo(${todos.id})'>
               Delete
             </button>
           </td>
@@ -35,20 +39,30 @@ let toDoItem = [
   }
 
 
-  // REFRESH
-  getToDos()
+ //REFRESH
+ getToDos()
 
+
+ function classHandler(toDoId) {
+  let toDoItem = document.getElementById(`todo-${toDoId}`);
+  if (toDoItem) {
+    toDoItem.classList.add("completed");
+
+    console.log(toDoItem.classList)
+  }
+}
 
   //UPDATE
-function updateIsComplete(toDoId){
-  axios.put(`/todos/${toDoId}`)
-  .then((response)=>{
-    getToDos()
-  })
-  .catch((error)=>{
-    console.log('Error updating complete', error);
-  })
-}
+  function updateIsComplete(toDoId){
+    axios.put(`/todos/${toDoId}`)
+    .then((response)=>{
+      classHandler(toDoId); // Pass the correct toDoId
+      getToDos();
+    })
+    .catch((error)=>{
+      console.log('Error updating complete', error);
+    })
+  }
 
 //GET
 function getToDos(){
@@ -69,11 +83,12 @@ function submitToDoItem(event){
 
 let newToDo = {
 text: document.getElementById(`toDoTextInput`).value }
- console.log(newToDo)
+
+newToDo.classList = "incomplete"
 axios.post('/todos', newToDo)   
  .then((response)=>{
   getToDos()
-   console.log('in post request')})
+  console.log(newToDo.classList)})
  .catch((error)=>{
     console.log('Error in post', error);
  })
@@ -89,6 +104,11 @@ function deleteToDo(toDoId) {
       console.log('Error in delete', error);
     });
   }
+
+  //REFRESH
+  document.addEventListener('DOMContentLoaded', (event) => {
+    getToDos();
+});
   
 
 
