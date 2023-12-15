@@ -6,12 +6,36 @@
   <link rel="stylesheet" href="style.css">
   <script src="./scripts/axios.js"></script>
   <script src="./scripts/client.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <title>SQL TO-DO List</title>
 </head>
 <body>
   <header>
+    <!--<img src="images/icon.png" class="icon"-->
     <h1>SQL TO-DO List</h1>
   </header>
-
+  <section id="toDoForm">
+    <h2>Add</h2>
+    <input type="text" data-testid="toDoTextInput" value="" placeholder="To Do">
+    <button type="button" data-testid="submitButton" onclick="submitToDoItem()">Add</button>
+  </section>
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>To Do</th>
+          <th>Done</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="toDoTable">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </body>
 </html>
