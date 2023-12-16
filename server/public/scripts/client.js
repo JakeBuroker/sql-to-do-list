@@ -1,8 +1,3 @@
-console.log('JS is sourced!');
-
-
-
-
 // TO DO ARRAY
 let toDoItem = [
     {
@@ -12,15 +7,20 @@ let toDoItem = [
     }
   ];
 
+//MODAL DELETE
+let currentDeleteId = null;
 
+function setCurrentDeleteId(toDoId) {
+    currentDeleteId = toDoId;
+  }
 
-  // RENDER
-  function renderToDos(array) {
-    let tableBody = document.getElementById('toDoTable');
-    tableBody.innerHTML = '';
-    for (const todos of array) {
-      tableBody.innerHTML += `
-        <tr id="todo-${todos.id}" class="${todos.isComplete ? 'completed' : 'incomplete'}" data-testid="toDoItem">
+// RENDER
+function renderToDos(array) {
+  let tableBody = document.getElementById('toDoTable');
+  tableBody.innerHTML = '';
+  for (const todos of array) {
+    tableBody.innerHTML += `
+      <tr id="todo-${todos.id}" class="${todos.isComplete ? 'completed' : 'incomplete'}" data-testid="toDoItem">
           <td>${todos.text}</td>
           <td>
             <button data-testid="completeButton" onClick='updateIsComplete(${todos.id})'>
@@ -28,20 +28,19 @@ let toDoItem = [
             </button>
           </td>
           <td >
-            <button data-testid="deleteButton" onClick='deleteToDo(${todos.id})'>
-              Delete
-            </button>
+          <button href="#myModal" class="trigger-btn" data-toggle="modal" onclick="setCurrentDeleteId(${todos.id})">
+          Delete
+        </button>
           </td>
         </tr>
       `;
     }
   }
 
-
  //REFRESH
  getToDos()
 
-
+//CHANGE TO-DO CLASS
  function classHandler(toDoId) {
   let toDoItem = document.getElementById(`todo-${toDoId}`);
   if (toDoItem) {
@@ -51,11 +50,11 @@ let toDoItem = [
   }
 }
 
-  //UPDATE
-  function updateIsComplete(toDoId){
+//UPDATE
+function updateIsComplete(toDoId){
     axios.put(`/todos/${toDoId}`)
     .then((response)=>{
-      classHandler(toDoId); // Pass the correct toDoId
+      classHandler(toDoId);
       getToDos();
     })
     .catch((error)=>{
@@ -65,7 +64,6 @@ let toDoItem = [
 
 //GET
 function getToDos(){
-    // axios call to server to get to dos
     axios.get('/todos')
     .then((response)=>{
       console.log(response.data);
@@ -95,16 +93,16 @@ axios.post('/todos', newToDo)
 
 //DELETE
 function deleteToDo(toDoId) {
-    axios.delete(`/todos/${toDoId}`)
-    .then((response) => {
-      getToDos();
-    })
-    .catch((error) => {
-      console.log('Error in delete', error);
-    });
-  }
+  axios.delete(`/todos/${toDoId}`)
+  .then((response) => {
+    getToDos();
+    $('#myModal').modal('hide');
+  })
+  .catch((error) => {
+    console.log('Error in delete', error);
+  });
+}
 
-  //REFRESH
   document.addEventListener('DOMContentLoaded', (event) => {
     getToDos();
 });
