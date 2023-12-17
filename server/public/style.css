@@ -1,3 +1,113 @@
 .completed {
     text-decoration: line-through
 }
+
+.trigger-btn { 
+    background-color: transparent;
+    cursor: url('./media/pencil.jpg');
+}
+
+#Delete {
+    background-image:url('./media/eraser.jpg');
+    background-size: 104%;
+    background-repeat: no-repeat;
+    color: transparent;
+    border-color: transparent;
+  
+}
+
+#Done {
+    display:flex;
+}
+    
+
+#Done:hover { 
+    background-color:#44b87e;
+    border-color: transparent; 
+  } 
+
+
+body {
+    background-color: #f3f3f3;
+    font-family: 'Roboto', sans-serif;
+   
+}
+  
+header {
+    background-color: #fdd225;
+    padding: 10px 0;
+    text-align: center;
+    border: solid;
+
+}
+  
+#toDoForm {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+}
+  
+#toDoForm h2 {
+    margin-bottom: 20px;
+}
+  
+#toDoTextInput {
+    width: 75%;
+    padding: 10;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'DK Au Revoir', sans-serif;
+    font-size: 180%;
+    cursor: url('./media/pencil.jpg'), auto;
+}
+  
+#toDoForm button {
+    color: transparent;
+    background-color: white;
+    border: none;
+    padding: 20px 30px;
+    border-radius: 10px;
+    background-image:url('./media/pencil.jpg');
+    background-size: 70%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+.trigger-btn{
+    float: right;
+    margin-right: 20px;
+}
+
+#toDoForm button:hover {
+    background-color: #44b87e;
+}
+  
+table {
+    width: 80%;
+    margin: 20px auto;
+    background-color: white;
+    border-collapse: collapse;
+}
+  
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    font-family: 'DK Au Revoir', sans-serif;
+    font-size: 225%;
+}
+
+h1 {
+    font-family: Lucida Console;
+    font-size:200%;
+    
+}
+h2 {
+    font-family: Lucida Console;
+    border: solid;
+    border-width: 2px;
+    padding: 6px;
+}
+

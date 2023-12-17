@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
 
-
 // GET
 router.get('/', (req, res) => {
-    let queryText = `SELECT * FROM "todos" ORDER BY "id"`
+  let queryText = `SELECT * FROM "todos" ORDER BY "id"`
     pool.query(queryText).then(result => {
       // Sends back the results in an object
       res.send(result.rows);
@@ -15,12 +14,12 @@ router.get('/', (req, res) => {
     });
   });
 
-  // POST
-  router.post('/',  (req, res) => {
-    let newToDo = req.body;
-    console.log('Adding To Do');
+// POST
+router.post('/',  (req, res) => {
+  let newToDo = req.body;
+  console.log('Adding To Do');
   
-    let queryText = `INSERT INTO "todos" ("text")
+  let queryText = `INSERT INTO "todos" ("text")
     VALUES 
     ($1)`
     pool.query(queryText, [newToDo.text])
@@ -35,7 +34,7 @@ router.get('/', (req, res) => {
   }); 
 
 // PUT
- router.put('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     let toDoId = req.params.id;
     let isComplete = req.body.isComplete;
     let queryText = `UPDATE "todos" SET "isComplete" = True WHERE "id" = $1;`;
@@ -49,15 +48,30 @@ router.get('/', (req, res) => {
       });
   }); 
 
-  // DELETE
+router.put('/:id/complete', (req, res) => {
+  let toDoId = req.params.id;
+  let queryText = `UPDATE "todos" SET "isComplete" = TRUE, "completedAt" = NOW() WHERE "id" = $1;`;
+  pool.query(queryText, [toDoId])
+    .then(result => {
+        res.sendStatus(200);
+      })
+      .catch(error => {
+        console.log(`Error marking task as complete`, error);
+        res.sendStatus(500);
+      });
+  });
+
+
+
+// DELETE
 router.delete('/:id', (req, res) => {
-    console.log("running")
-    let toDoId = req.params.id;
+  console.log("running")
+  let toDoId = req.params.id;
   
-    const queryText = `DELETE FROM "todos" WHERE "id" = $1;`
-    const queryParams = [toDoId];
+  const queryText = `DELETE FROM "todos" WHERE "id" = $1;`
+  const queryParams = [toDoId];
   
-    pool.query(queryText, queryParams)
+  pool.query(queryText, queryParams)
         .then(() => {
             console.log("To Do Deleted")
             res.sendStatus(200);
