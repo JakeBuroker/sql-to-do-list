@@ -1,10 +1,6 @@
+
 .completed {
     text-decoration: line-through
-}
-
-.trigger-btn { 
-    background-color: transparent;
-    cursor: url('./media/pencil.jpg');
 }
 
 #Delete {
@@ -12,12 +8,14 @@
     background-size: 104%;
     background-repeat: no-repeat;
     color: transparent;
+    background-color: white;
     border-color: transparent;
-  
+
 }
 
 #Done {
     display:flex;
+    background-color: white;
 }
     
 
@@ -38,12 +36,12 @@ header {
     padding: 10px 0;
     text-align: center;
     border: solid;
+    border-width: 2px;
 
 }
   
 #toDoForm {
     background-color: white;
-    border: 1px solid #ddd;
     padding: 20px;
     margin: 20px auto;
     width: 80%;
@@ -100,14 +98,13 @@ th, td {
 }
 
 h1 {
-    font-family: Lucida Console;
-    font-size:200%;
+  
+    font-size:  250px;
+    font-family: 'Courier New', monospace;
     
 }
 h2 {
     font-family: Lucida Console;
-    border: solid;
-    border-width: 2px;
-    padding: 6px;
+    
 }
 

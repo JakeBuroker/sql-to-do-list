@@ -12,7 +12,6 @@ let toDoItem = [
 
 // MODAL DELETE
 let currentDeleteId = null;
-
 function setCurrentDeleteId(toDoId) {
  currentDeleteId = toDoId;
 }
@@ -43,7 +42,7 @@ getToDos()
 
 // CHANGE TODO CLASS
 function classHandler(toDoId) {
-  let Done = document.getElementById(`Done`)
+let Done = document.getElementById(`Done`)
 let toDoItem = document.getElementById(`todo-${toDoId}`);
   if (toDoItem) {
     Done.id = "DoneClicked"
@@ -78,8 +77,7 @@ function getToDos(){
 
 // POST
 function submitToDoItem(event){
-
-  let newToDo = {text: document.getElementById(`toDoTextInput`).value }
+let newToDo = {text: document.getElementById(`toDoTextInput`).value }
 newToDo.classList = "incomplete"
 
 axios.post('/todos', newToDo)   

@@ -5,7 +5,6 @@ const pool = require('../modules/pool');
 router.get('/', (req, res) => {
   let queryText = `SELECT * FROM "todos" ORDER BY "id"`
     pool.query(queryText).then(result => {
-      // Sends back the results in an object
       res.send(result.rows);
     })
     .catch(error => {
@@ -17,8 +16,6 @@ router.get('/', (req, res) => {
 // POST
 router.post('/',  (req, res) => {
   let newToDo = req.body;
-  console.log('Adding To Do');
-  
   let queryText = `INSERT INTO "todos" ("text")
     VALUES 
     ($1)`
@@ -67,7 +64,6 @@ router.put('/:id/complete', (req, res) => {
 router.delete('/:id', (req, res) => {
   console.log("running")
   let toDoId = req.params.id;
-  
   const queryText = `DELETE FROM "todos" WHERE "id" = $1;`
   const queryParams = [toDoId];
   
