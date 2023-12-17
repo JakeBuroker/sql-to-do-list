@@ -34,8 +34,7 @@ The API supports the following operations:
 - **DELETE `/todos/:id`**: Removes a task.
 
 ## Testing
-- Run integration tests with Cypress:
-- 'nmp test'
+- Run integration tests with Cypress: 'nmp test'
 
 
 ## Contributing
