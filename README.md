@@ -1,4 +1,4 @@
-# To-Do List
+# SQL To-Do List
 
 ## Description
 This To-Do List application is a full-stack web application that allows users to efficiently manage their daily tasks. The frontend is built using HTML, CSS, JavaScript, and Bootstrap, providing a user-friendly interface for adding, deleting, and viewing tasks. The backend is powered by Node.js and Express, handling HTTP requests and interfacing with a PostgreSQL database. Axios is used for making HTTP requests from the frontend. The application provides audio feedback for interactions and has a persistent storage mechanism for tasks using SQL. The application is deployed on Heroku.
