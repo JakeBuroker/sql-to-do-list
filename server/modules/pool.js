@@ -1,5 +1,7 @@
-const pg = require('pg')
-let databaseName = 'weekend-to-do-app'
+const pg = require('pg');
+let pool;
+let databaseName = 'weekend-to-do-app';
+
 if (process.env.DATABASE_URL) {
   pool = new pg.Pool({
       connectionString: process.env.DATABASE_URL,
@@ -7,13 +9,12 @@ if (process.env.DATABASE_URL) {
           rejectUnauthorized: false
       }
   });
+} else {
+  pool = new pg.Pool({
+      host: 'LocalHost',
+      port: 5432,
+      database: databaseName,
+  });
 }
-else {
-const pool = new pg.Pool({
-    host: 'localhost',
-    port: 5432,
-    database: 'weekend-to-do-app',
-    allowExitOnIdle: true 
-})
-}
-module.exports = pool
+
+module.exports = pool;
