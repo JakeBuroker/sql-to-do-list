@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const todos = require('./routes/todos.router.js');
 let PORT = process.env.PORT || 5001;
 app.use(bodyParser.urlencoded({extended: true}));
+const someSecret = process.env.MY_SUPER_SECRET;
 
 if (process.env.NODE_ENV == 'test') {
   PORT = 5002;
