@@ -66,7 +66,7 @@ function updateIsComplete(toDoId){
 function getToDos(){
     axios.get('/todos')
     .then((response)=>{
-      console.log(response.data);
+      console.log();
       renderToDos(response.data)
     })
     .catch((error)=>{
