@@ -1,6 +1,3 @@
-console.log('JS is sourced!');
-
-
 // TO DO ARRAY
 let toDoItem = [
  {
