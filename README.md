@@ -6,10 +6,10 @@ Since its initial creation, I've advanced in my skills and knowledge. This proje
 
 ## Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap for a sleek, responsive design.
-- **Backend:** Node.js, Express for robust server-side operations.
-- **Database:** PostgreSQL, ensuring reliable and persistent data storage.
-- **HTTP Requests:** Axios for seamless frontend-backend communication.
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap.
+- **Backend:** Node.js, Express for server-side operations.
+- **Database:** PostgreSQL for data storage.
+- **HTTP Requests:** Axios for frontend-backend communication.
 - **Audio Feedback:** Engaging user experience with interactive sounds.
 - **Deployment:** The application is deployed on Heroku and can be accessed at [https://todolistsql-af8085011d38.herokuapp.com](https://todolistsql-af8085011d38.herokuapp.com). The deployment includes both the frontend and backend services, providing a fully functional web application experience.
 
@@ -25,9 +25,7 @@ Since its initial creation, I've advanced in my skills and knowledge. This proje
 
 - Efficient task management: add, view, complete, delete tasks.
 - Responsive, user-friendly design.
-- Robust backend with Node.js and Express.
 - Secure and persistent PostgreSQL database.
-- Development efficiency with Nodemon.
 - Interactive audio feedback.
 
 ## Backend API
@@ -37,20 +35,9 @@ Since its initial creation, I've advanced in my skills and knowledge. This proje
 - `PUT /todos/:id`: Update a task's status.
 - `DELETE /todos/:id`: Remove a task.
 
-## Contributing
-
-Join me in enhancing this project! Here's how you can contribute:
-
-1. **Fork the Repository.**
-2. **Create a New Branch:** `git checkout -b feature-branch`.
-3. **Commit Your Changes:** `git commit -am 'Add some feature'`.
-4. **Push to the Branch:** `git push origin feature-branch`.
-5. **Submit a Pull Request.**
-
-## License
-
-This project is proudly licensed under the ISC License.
-
 ## Contact
 
-Got questions or suggestions? Feel free to email me at JakeTBuroker@gmail.com.
+Got questions or suggestions? Feel free to reach out and connect!
+
+[![Linkedin: JakeBuroker](https://img.shields.io/badge/-JakeBuroker-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/jakeburoker/)](https://www.linkedin.com/in/jakeburoker/)
+[![Gmail: JakeTBuroker](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:JakeTBuroker@gmail.com)
